@@ -46,7 +46,9 @@ const htmlToPdf = async (title, bodyTemplate, headTemplate, headerTemplate, foot
     }
     
 
-    const browser = await puppeteer.launch();
+    const browser = await puppeteer.launch({
+        args: ['--no-sandbox'],
+    });
     const page = await browser.newPage();
 
     await page.setContent(bodyTemplate);
