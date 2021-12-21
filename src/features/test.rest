@@ -1,0 +1,6 @@
+POST http://localhost:44444/report/pdf?reportCode=ultra_sound
+Content-Type: application/json
+
+{
+    "key1": "value1"
+}

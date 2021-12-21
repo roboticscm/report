@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Doctor List</title>
+    <link rel="stylesheet" href="css/index.css">
+    <link rel="stylesheet" href="css/report-preview.css">
+</head>
+
+<body>
+    <div class="space-between">
+        <div>
+            <div>
+                Mã KH/Patient ID
+            </div>
+            <div>
+                <img src={{patientIdAsQrCode}}>
+            </div>
+            <div>
+                {{patientId}}
+            </div>
+        </div>
+       
+        <div>
+            Mã HS/Report ID
+        </div>
+        
+    </div>
+
+    
+    <table style="width: 100%;">
+        <tr >
+            <td class="report-title" >
+                New Report title {{id}}
+            </td>
+        </tr>
+    </table>
+    <table border="1" class="table">
+        <thead style=" display: table-header-group; break-inside: avoid;">
+            <tr>
+                <th style="width: 10%;">ID</th>
+                <th style="width: 30%;">Last Name</th>
+                <th style="width: 20%;">First Name</th>
+                <th style="width: 40%;">Address</th>
+            </tr>
+        </thead>
+
+        <tbody>
+            {{#each doctors}}
+            <tr style="page-break-inside: avoid;">
+                <td>{{id}}</td>
+                <td>{{lastName}}</td>
+                <td>{{firstName}}</td>
+                <td>{{address}}</td>
+            </tr>
+            {{/each}}
+        </tbody>
+    </table>
+    
+</body>
+
+</html>

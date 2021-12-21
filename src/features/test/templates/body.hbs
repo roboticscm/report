@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        {{fontawesome-css}}
+    </style>
+</head>
+
+<body>
+    <table border="1" class="table">
+        <thead class="table-header" style="display: table-header-group; break-inside: avoid;">
+            <tr>
+                <th style="width: 5%;">STT<br>Number </th>
+                <th style="width: 45%;">Nội dung chỉ định<br>Referred</th>
+                <th style="width: 25%;">Bác sĩ thực hiện<br>Doctor</th>
+                <th style="width: 25%;">Nhân viên thực hiện<br>Nurse</th>
+            </tr>
+        </thead>
+
+        <tbody>
+            {{#each services}}
+            <tr>
+                <td class="center">{{offset @index}}
+                    <br>
+                    {{#if serviceIdAsQrCode}}
+                    <img class="default-qrcode" src="{{serviceIdAsQrCode}}" alt="{{id}}">
+                    {{/if}}
+                </td>
+                <td>
+                    <div>
+                        {{name}}
+                    </div>
+                    {{#if serviceIdAsBarCode}}
+                    <div class="default-barcode-box">
+                        <div>{{id}}</div>
+                        <img src="{{serviceIdAsBarCode}}" alt="{{id}}">
+                    </div>
+                    {{/if}}
+                </td>
+                <td>{{doctor}}</td>
+                <td>{{nurse}}</td>
+            </tr>
+            {{/each}}
+        </tbody>
+    </table>
+
+    <div class="space-between" style="margin-top: 20px;">
+        <div class="vertical-box w-50">
+            <div class="w-100 no-wrap space-between">
+                <span class="bold">Đề nghị</span> <span class="italic">(Request):</span>
+                <input class="dotted-line-input">
+            </div>
+            <div class="w-100 no-wrap space-between" style="margin-top: 6px;">
+                <input class="dotted-line-input">
+            </div>
+
+            <div class="w-100 no-wrap space-between" style="margin-top: 6px;">
+                <span class="bold">Ghi chú</span> <span class="italic">(Note): </span>
+                <input class="dotted-line-input">
+            </div>
+            <div class="w-100 no-wrap space-between" style="margin-top: 6px;">
+                <input class="dotted-line-input">
+            </div>
+            <hr class="default-hr">
+            <div class="w-100 no-wrap space-between">
+                <span class="bold">Nhân viên tiếp nhận: </span>:
+                <input class="dotted-line-input">
+            </div>
+            <div class="w-100 no-wrap space-between" style="margin-top: 6px;">
+                <span class="bold">Nhân viên nhập liệu: </span>:
+                <input class="dotted-line-input">
+            </div>
+        </div>
+        <div class="vertical-center-box" style="justify-content: space-between;">
+            <div>
+                <span class="bold">Bác sĩ</span> <span class="italic">(Doctor's signature)</span>
+            </div>
+
+            <div class="uppercase bold">
+                {{doctorFullName}}
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>
